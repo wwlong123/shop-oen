@@ -7,28 +7,26 @@
     http://code.alibabatech.com/schema/dubbo
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="dubbo-service" />
+    <dubbo:application name="demo-service" />
     <!-- 使用multicast广播注册中心暴露服务地址 -->
     <!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://192.168.1.100:2181" />
+    <dubbo:registry address="zookeeper://192.168.1.127:2181" />
+
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
-
-
-
-
-
     <!-- Bean 聲明  和本地bean一样实现服务 -->
     <bean id="cearchService" class="com.jk.service.Cearch.CearchServiceImpl" />
-
     <bean id="moodService" class="com.jk.service.Mood.MoodServiceImpl" />
-
-
+    <bean id="stuService" class="com.jk.service.Userserviceimpl" />
+    <bean id="loginservice" class="com.jk.service.loginservice.loginserviceimpl" />
+    <bean id="Partnerserviceimpl" class="com.jk.service.partnerservice.Partnerserviceimpl" />
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.jk.service.Cearch.CearchService"  ref="cearchService" />
-
     <dubbo:service interface="com.jk.service.Mood.MoodService"  ref="moodService" />
+    <dubbo:service interface="com.jk.service.Userservice" ref="stuService" />
+    <dubbo:service interface="com.jk.service.loginservice.loginservice" ref="loginservice" />
+    <dubbo:service interface="com.jk.service.partnerservice.Partnerservice" ref="Partnerserviceimpl" />
 
 </beans>
