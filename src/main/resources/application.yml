@@ -1,0 +1,8 @@
+server:
+  port: 8086
+spring:
+    datasource:
+      username: root
+      password: root
+      url: jdbc:mysql://192.168.1.127:3306/shop?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      driver-class-name: com.mysql.jdbc.Driver
