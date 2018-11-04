@@ -1,10 +1,7 @@
 package com.jk.dao.partnerdao;
 
 import com.jk.model.Partner;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,4 +12,6 @@ public interface Partnerdao {
     void addpartner(@Param("str") Partner str);
     @Update("update z_partner set parstate=2 where id=#{ids}")
     void updatestart();
+    @Delete("delete from z_partner where id=#{userid}")
+    void delpartner(@Param("userid") Integer userid);
 }

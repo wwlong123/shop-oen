@@ -43,5 +43,10 @@ public class Partnerserviceimpl implements Partnerservice {
         partnerdao.updatestart();
     }
 
+    @Override
+    public void delpartner(Integer userid) {
+        partnerdao.delpartner(userid);
+    }
+
 
 }

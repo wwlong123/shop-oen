@@ -12,4 +12,6 @@ public interface Partnerservice {
 
     void updatestart();
 
+    void delpartner(Integer userid);
+
 }
