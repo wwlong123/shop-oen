@@ -24,8 +24,7 @@ public class CearchServiceImpl implements  CearchService{
 
     @Override
     public void savecaerch(Cearch ch) {
-        String uuid= UUID.randomUUID().toString();
-        ch.setZids(uuid);
+
         cearchDao.savecaerch(ch);
     }
 
@@ -33,6 +32,7 @@ public class CearchServiceImpl implements  CearchService{
     public void deletech(String id) {
         cearchDao.deletech(id);
     }
+
 
     @Override
     public Map<String, Object> selectcearch(Integer start,Integer pageSize) {
@@ -44,7 +44,6 @@ public class CearchServiceImpl implements  CearchService{
 
         return map;
     }
-
 
 
 

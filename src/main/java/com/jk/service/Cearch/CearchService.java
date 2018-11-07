@@ -7,12 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 public interface CearchService {
-   
+
 
     void savecaerch(Cearch ch);
 
     void deletech(String id);
 
 
-    Map<String, Object> selectcearch( Integer start,Integer pageSize);
+
+    Map<String, Object> selectcearch(Integer start, Integer pageSize);
 }

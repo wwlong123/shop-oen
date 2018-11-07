@@ -24,4 +24,7 @@ public interface CearchDao {
     @Select("select count(*) from  z_soushuo")
     long emcount();
 
+
+
+
 }
