@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 @Service
 public class Partnerserviceimpl implements Partnerservice {
@@ -17,9 +16,7 @@ public class Partnerserviceimpl implements Partnerservice {
 
     @Override
     public List<Partner> selectpartner() {
-            /**
-             * 延迟5000毫秒，每1000毫秒执行一次
-             */
+
             /*Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 int  start =0;
@@ -46,6 +43,21 @@ public class Partnerserviceimpl implements Partnerservice {
     @Override
     public void delpartner(Integer userid) {
         partnerdao.delpartner(userid);
+    }
+
+    @Override
+    public List<Partner> selectpartnerEnd() {
+        return partnerdao.selectpartnerEnd();
+    }
+
+    @Override
+    public List<Partner> selectpartnerEndUpdate() {
+        return partnerdao.selectpartnerEndUpdate();
+    }
+
+    @Override
+    public void updatePartner(Integer ids) {
+        partnerdao.updatePartner(ids);
     }
 
 

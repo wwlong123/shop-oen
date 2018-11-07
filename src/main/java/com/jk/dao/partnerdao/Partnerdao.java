@@ -2,6 +2,7 @@ package com.jk.dao.partnerdao;
 
 import com.jk.model.Partner;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,4 +15,17 @@ public interface Partnerdao {
     void updatestart();
     @Delete("delete from z_partner where id=#{userid}")
     void delpartner(@Param("userid") Integer userid);
+    @Select(" SELECT *,(  SELECT timestampdiff(DAY, SYSDATE(), z.enddate) )u FROM z_partner z " +
+            "WHERE ( SELECT timestampdiff(DAY, SYSDATE(), z.enddate) ) " +
+            "< 20 AND ( SELECT timestampdiff(DAY, SYSDATE(), z.enddate) ) % 2 = 0 AND " +
+            "( SELECT timestampdiff(DAY, SYSDATE(), z.enddate)) >=5;" )
+    List<Partner> selectpartnerEnd();
+
+    @Select("SELECT *,(SELECT timestampdiff(DAY, SYSDATE(), z.enddate) )u FROM z_partner z  " +
+            "WHERE ( SELECT timestampdiff(DAY, SYSDATE(), z.enddate) ) < 5 " +
+            " AND ( SELECT timestampdiff(DAY, SYSDATE(), z.enddate)) >0; ")
+    List<Partner> selectpartnerEndUpdate();
+    @Update(" UPDATE z_partner z  SET z.parstate = 2" +
+            "WHERE  z.id = #{ids}  ")
+    void updatePartner(Integer ids);
 }

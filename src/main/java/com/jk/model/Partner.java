@@ -16,10 +16,10 @@ public class Partner implements Serializable {
 
     private String parrelation;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
     private Date    startdate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone="GMT+8")
     private Date enddate;
 
     private Integer parstate;
